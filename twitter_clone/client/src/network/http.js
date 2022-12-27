@@ -1,6 +1,7 @@
 export default class HttpClient {
-  constructor(baseURL) {
+  constructor(baseURL, authErrorEventBus) {
     this.baseURL = baseURL;
+    this.authErrorEventBus = authErrorEventBus;
   }
 
   async fetch(url, options) {
@@ -10,6 +11,7 @@ export default class HttpClient {
         'Content-Type': 'application/json',
         ...options.headers,
       },
+      credentials: 'include',
     });
     let data;
     try {
