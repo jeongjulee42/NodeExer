@@ -1,7 +1,6 @@
 export default class TweetService {
   constructor(http, socket) {
     this.http = http;
-
     this.socket = socket;
   }
 
@@ -31,7 +30,6 @@ export default class TweetService {
       body: JSON.stringify({ text }),
     });
   }
-
 
   onSync(callback) {
     return this.socket.onSync('tweets', callback);
